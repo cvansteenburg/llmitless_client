@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "fast-api-client"
+name = "llmitless-client"
 version = "0.1.0"
-description = "A client library for accessing FastAPI"
-authors = []
+description = "A client library for accessing llmitless"
+authors = ["Chase VanSteenburg <cvansteenburg@gmail.com>"]
 readme = "README.md"
 packages = [
-    {include = "fast_api_client"},
+    {include = "llmitless_client"},
 ]
-include = ["CHANGELOG.md", "fast_api_client/py.typed"]
+include = ["CHANGELOG.md", "llmitless_client/py.typed"]
 
 
 [tool.poetry.dependencies]
