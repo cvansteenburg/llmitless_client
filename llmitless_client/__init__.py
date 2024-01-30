@@ -1,4 +1,4 @@
-""" A client library for accessing llmitless """
+""" A client library for accessing LLMitless """
 from .client import AuthenticatedClient, Client
 
 __all__ = (
