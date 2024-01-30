@@ -1,4 +1,4 @@
-# llmitless-client
+# llmitless_client
 A client library for accessing llmitless
 
 ## Usage
