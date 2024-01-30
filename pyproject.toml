@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "llmitless-client"
+name = "llmitless_client"
 version = "0.1.0"
 description = "A client library for accessing llmitless"
 authors = ["Chase VanSteenburg <cvansteenburg@gmail.com>"]
