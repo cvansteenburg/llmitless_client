@@ -1,4 +1,4 @@
-# llmitless_client_py
+# llmitless_client
 A client library for accessing llmitless
 
 ## Usage
