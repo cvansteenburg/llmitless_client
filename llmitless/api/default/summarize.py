@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.body_summarize_summarize_input_doc_format_post import BodySummarizeSummarizeInputDocFormatPost
+from ...models.body_summarize import BodySummarize
 from ...models.http_validation_error import HTTPValidationError
 from ...models.input_doc_format import InputDocFormat
 from ...models.summarization_result import SummarizationResult
@@ -15,7 +15,7 @@ from ...types import Response
 def _get_kwargs(
     input_doc_format: InputDocFormat,
     *,
-    body: BodySummarizeSummarizeInputDocFormatPost,
+    body: BodySummarize,
     api_key: str,
 ) -> Dict[str, Any]:
     headers: Dict[str, Any] = {}
@@ -66,8 +66,8 @@ def _build_response(
 def sync_detailed(
     input_doc_format: InputDocFormat,
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeSummarizeInputDocFormatPost,
+    client: AuthenticatedClient,
+    body: BodySummarize,
     api_key: str,
 ) -> Response[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize a list of documents
@@ -78,7 +78,7 @@ def sync_detailed(
     Args:
         input_doc_format (InputDocFormat):
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeSummarizeInputDocFormatPost):
+        body (BodySummarize):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -104,8 +104,8 @@ def sync_detailed(
 def sync(
     input_doc_format: InputDocFormat,
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeSummarizeInputDocFormatPost,
+    client: AuthenticatedClient,
+    body: BodySummarize,
     api_key: str,
 ) -> Optional[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize a list of documents
@@ -116,7 +116,7 @@ def sync(
     Args:
         input_doc_format (InputDocFormat):
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeSummarizeInputDocFormatPost):
+        body (BodySummarize):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -137,8 +137,8 @@ def sync(
 async def asyncio_detailed(
     input_doc_format: InputDocFormat,
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeSummarizeInputDocFormatPost,
+    client: AuthenticatedClient,
+    body: BodySummarize,
     api_key: str,
 ) -> Response[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize a list of documents
@@ -149,7 +149,7 @@ async def asyncio_detailed(
     Args:
         input_doc_format (InputDocFormat):
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeSummarizeInputDocFormatPost):
+        body (BodySummarize):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -173,8 +173,8 @@ async def asyncio_detailed(
 async def asyncio(
     input_doc_format: InputDocFormat,
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeSummarizeInputDocFormatPost,
+    client: AuthenticatedClient,
+    body: BodySummarize,
     api_key: str,
 ) -> Optional[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize a list of documents
@@ -185,7 +185,7 @@ async def asyncio(
     Args:
         input_doc_format (InputDocFormat):
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeSummarizeInputDocFormatPost):
+        body (BodySummarize):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

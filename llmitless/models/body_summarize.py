@@ -5,28 +5,28 @@ from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.document_contents import DocumentContents
-    from ..models.preprocessor import Preprocessor
-    from ..models.summarize_map_reduce import SummarizeMapReduce
-    from ..models.user_llm_config import UserLLMConfig
+    from ..models.llm_configs import LLMConfigs
+    from ..models.map_reduce_configs import MapReduceConfigs
+    from ..models.preprocessor_config import PreprocessorConfig
 
 
-T = TypeVar("T", bound="BodySummarizeSummarizeInputDocFormatPost")
+T = TypeVar("T", bound="BodySummarize")
 
 
 @_attrs_define
-class BodySummarizeSummarizeInputDocFormatPost:
+class BodySummarize:
     """
     Attributes:
         docs_to_summarize (List['DocumentContents']):
-        preprocessor (Preprocessor):
-        summarize_map_reduce (SummarizeMapReduce):
-        llm_config (UserLLMConfig):
+        preprocessor (PreprocessorConfig):
+        summarize_map_reduce (MapReduceConfigs):
+        llm_config (LLMConfigs):
     """
 
     docs_to_summarize: List["DocumentContents"]
-    preprocessor: "Preprocessor"
-    summarize_map_reduce: "SummarizeMapReduce"
-    llm_config: "UserLLMConfig"
+    preprocessor: "PreprocessorConfig"
+    summarize_map_reduce: "MapReduceConfigs"
+    llm_config: "LLMConfigs"
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -57,9 +57,9 @@ class BodySummarizeSummarizeInputDocFormatPost:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.document_contents import DocumentContents
-        from ..models.preprocessor import Preprocessor
-        from ..models.summarize_map_reduce import SummarizeMapReduce
-        from ..models.user_llm_config import UserLLMConfig
+        from ..models.llm_configs import LLMConfigs
+        from ..models.map_reduce_configs import MapReduceConfigs
+        from ..models.preprocessor_config import PreprocessorConfig
 
         d = src_dict.copy()
         docs_to_summarize = []
@@ -69,21 +69,21 @@ class BodySummarizeSummarizeInputDocFormatPost:
 
             docs_to_summarize.append(docs_to_summarize_item)
 
-        preprocessor = Preprocessor.from_dict(d.pop("preprocessor"))
+        preprocessor = PreprocessorConfig.from_dict(d.pop("preprocessor"))
 
-        summarize_map_reduce = SummarizeMapReduce.from_dict(d.pop("summarize_map_reduce"))
+        summarize_map_reduce = MapReduceConfigs.from_dict(d.pop("summarize_map_reduce"))
 
-        llm_config = UserLLMConfig.from_dict(d.pop("llm_config"))
+        llm_config = LLMConfigs.from_dict(d.pop("llm_config"))
 
-        body_summarize_summarize_input_doc_format_post = cls(
+        body_summarize = cls(
             docs_to_summarize=docs_to_summarize,
             preprocessor=preprocessor,
             summarize_map_reduce=summarize_map_reduce,
             llm_config=llm_config,
         )
 
-        body_summarize_summarize_input_doc_format_post.additional_properties = d
-        return body_summarize_summarize_input_doc_format_post
+        body_summarize.additional_properties = d
+        return body_summarize
 
     @property
     def additional_keys(self) -> List[str]:

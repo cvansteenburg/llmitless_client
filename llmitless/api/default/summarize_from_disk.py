@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.body_summarize_from_disk_summarize_from_disk_post import BodySummarizeFromDiskSummarizeFromDiskPost
+from ...models.body_summarize_from_disk import BodySummarizeFromDisk
 from ...models.http_validation_error import HTTPValidationError
 from ...models.summarization_result import SummarizationResult
 from ...types import Response
@@ -13,7 +13,7 @@ from ...types import Response
 
 def _get_kwargs(
     *,
-    body: BodySummarizeFromDiskSummarizeFromDiskPost,
+    body: BodySummarizeFromDisk,
     api_key: str,
 ) -> Dict[str, Any]:
     headers: Dict[str, Any] = {}
@@ -63,8 +63,8 @@ def _build_response(
 
 def sync_detailed(
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeFromDiskSummarizeFromDiskPost,
+    client: AuthenticatedClient,
+    body: BodySummarizeFromDisk,
     api_key: str,
 ) -> Response[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize From Disk
@@ -73,7 +73,7 @@ def sync_detailed(
 
     Args:
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeFromDiskSummarizeFromDiskPost):
+        body (BodySummarizeFromDisk):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -97,8 +97,8 @@ def sync_detailed(
 
 def sync(
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeFromDiskSummarizeFromDiskPost,
+    client: AuthenticatedClient,
+    body: BodySummarizeFromDisk,
     api_key: str,
 ) -> Optional[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize From Disk
@@ -107,7 +107,7 @@ def sync(
 
     Args:
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeFromDiskSummarizeFromDiskPost):
+        body (BodySummarizeFromDisk):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -126,8 +126,8 @@ def sync(
 
 async def asyncio_detailed(
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeFromDiskSummarizeFromDiskPost,
+    client: AuthenticatedClient,
+    body: BodySummarizeFromDisk,
     api_key: str,
 ) -> Response[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize From Disk
@@ -136,7 +136,7 @@ async def asyncio_detailed(
 
     Args:
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeFromDiskSummarizeFromDiskPost):
+        body (BodySummarizeFromDisk):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -158,8 +158,8 @@ async def asyncio_detailed(
 
 async def asyncio(
     *,
-    client: Union[AuthenticatedClient, Client],
-    body: BodySummarizeFromDiskSummarizeFromDiskPost,
+    client: AuthenticatedClient,
+    body: BodySummarizeFromDisk,
     api_key: str,
 ) -> Optional[Union[HTTPValidationError, SummarizationResult]]:
     """Summarize From Disk
@@ -168,7 +168,7 @@ async def asyncio(
 
     Args:
         api_key (str): API key for the LLM. Default LLM is OpenAI
-        body (BodySummarizeFromDiskSummarizeFromDiskPost):
+        body (BodySummarizeFromDisk):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

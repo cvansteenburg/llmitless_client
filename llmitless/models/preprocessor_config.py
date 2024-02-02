@@ -5,11 +5,11 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="Preprocessor")
+T = TypeVar("T", bound="PreprocessorConfig")
 
 
 @_attrs_define
-class Preprocessor:
+class PreprocessorConfig:
     """
     Attributes:
         max_tokens_per_doc (Union[Unset, int]): The maximum number of tokens to include in each doc that the LLM will
@@ -67,13 +67,13 @@ class Preprocessor:
 
         metadata_to_include = _parse_metadata_to_include(d.pop("metadata_to_include", UNSET))
 
-        preprocessor = cls(
+        preprocessor_config = cls(
             max_tokens_per_doc=max_tokens_per_doc,
             metadata_to_include=metadata_to_include,
         )
 
-        preprocessor.additional_properties = d
-        return preprocessor
+        preprocessor_config.additional_properties = d
+        return preprocessor_config
 
     @property
     def additional_keys(self) -> List[str]:

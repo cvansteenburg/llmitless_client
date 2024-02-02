@@ -5,15 +5,17 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="UserLLMConfig")
+T = TypeVar("T", bound="LLMConfigs")
 
 
 @_attrs_define
-class UserLLMConfig:
+class LLMConfigs:
     """
     Attributes:
-        organization (Union[None, Unset, str]):
-        model (Union[None, Unset, str]):
+        organization (Union[None, Unset, str]): For users who belong to multiple organizations, you can pass a header to
+            specify which organization is used for an API request. Usage from these API requests will count as usage for the
+            specified organization.
+        model (Union[None, Unset, str]): The model to use for LLM calls. If not specified, defaults to gpt-3.5-turbo
         temperature (Union[None, Unset, float]): Controls randomness of the output. Values closer to 0 make output more
             random, values closer to 1 make output more deterministic. If not specified, default is 0.7
     """
@@ -85,14 +87,14 @@ class UserLLMConfig:
 
         temperature = _parse_temperature(d.pop("temperature", UNSET))
 
-        user_llm_config = cls(
+        llm_configs = cls(
             organization=organization,
             model=model,
             temperature=temperature,
         )
 
-        user_llm_config.additional_properties = d
-        return user_llm_config
+        llm_configs.additional_properties = d
+        return llm_configs
 
     @property
     def additional_keys(self) -> List[str]:

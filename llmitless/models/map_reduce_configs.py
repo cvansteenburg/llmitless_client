@@ -5,11 +5,11 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="SummarizeMapReduce")
+T = TypeVar("T", bound="MapReduceConfigs")
 
 
 @_attrs_define
-class SummarizeMapReduce:
+class MapReduceConfigs:
     """
     Attributes:
         core_prompt (Union[None, Unset, str]): Provides a role, context, and instructions for the LLM. LLM will
@@ -120,7 +120,7 @@ class SummarizeMapReduce:
 
         collapse_token_max = d.pop("collapse_token_max", UNSET)
 
-        summarize_map_reduce = cls(
+        map_reduce_configs = cls(
             core_prompt=core_prompt,
             collapse_prompt=collapse_prompt,
             combine_prompt=combine_prompt,
@@ -129,8 +129,8 @@ class SummarizeMapReduce:
             collapse_token_max=collapse_token_max,
         )
 
-        summarize_map_reduce.additional_properties = d
-        return summarize_map_reduce
+        map_reduce_configs.additional_properties = d
+        return map_reduce_configs
 
     @property
     def additional_keys(self) -> List[str]:

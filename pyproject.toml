@@ -2,12 +2,12 @@
 name = "llmitless_client"
 version = "0.1.0"
 description = "A client library for accessing llmitless"
-authors = ["Chase VanSteenburg <cvansteenburg@gmail.com>"]
+authors = []
 readme = "README.md"
 packages = [
-    {include = "llmitless_client"},
+    {include = "llmitless"},
 ]
-include = ["CHANGELOG.md", "llmitless_client/py.typed"]
+include = ["CHANGELOG.md", "llmitless/py.typed"]
 
 
 [tool.poetry.dependencies]

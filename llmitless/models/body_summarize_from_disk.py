@@ -5,34 +5,34 @@ from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
     from ..models.file_filter import FileFilter
-    from ..models.preprocessor import Preprocessor
-    from ..models.summarize_map_reduce import SummarizeMapReduce
-    from ..models.user_llm_config import UserLLMConfig
+    from ..models.llm_configs import LLMConfigs
+    from ..models.map_reduce_configs import MapReduceConfigs
+    from ..models.preprocessor_config import PreprocessorConfig
 
 
-T = TypeVar("T", bound="BodySummarizeFromDiskSummarizeFromDiskPost")
+T = TypeVar("T", bound="BodySummarizeFromDisk")
 
 
 @_attrs_define
-class BodySummarizeFromDiskSummarizeFromDiskPost:
+class BodySummarizeFromDisk:
     """
     Attributes:
         file_filter (FileFilter):
-        preprocessor (Preprocessor):
-        summarize_map_reduce (SummarizeMapReduce):
-        llm_config (UserLLMConfig):
+        preprocessor_config (PreprocessorConfig):
+        summarize_map_reduce (MapReduceConfigs):
+        llm_config (LLMConfigs):
     """
 
     file_filter: "FileFilter"
-    preprocessor: "Preprocessor"
-    summarize_map_reduce: "SummarizeMapReduce"
-    llm_config: "UserLLMConfig"
+    preprocessor_config: "PreprocessorConfig"
+    summarize_map_reduce: "MapReduceConfigs"
+    llm_config: "LLMConfigs"
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         file_filter = self.file_filter.to_dict()
 
-        preprocessor = self.preprocessor.to_dict()
+        preprocessor_config = self.preprocessor_config.to_dict()
 
         summarize_map_reduce = self.summarize_map_reduce.to_dict()
 
@@ -43,7 +43,7 @@ class BodySummarizeFromDiskSummarizeFromDiskPost:
         field_dict.update(
             {
                 "file_filter": file_filter,
-                "preprocessor": preprocessor,
+                "preprocessor_config": preprocessor_config,
                 "summarize_map_reduce": summarize_map_reduce,
                 "llm_config": llm_config,
             }
@@ -54,28 +54,28 @@ class BodySummarizeFromDiskSummarizeFromDiskPost:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         from ..models.file_filter import FileFilter
-        from ..models.preprocessor import Preprocessor
-        from ..models.summarize_map_reduce import SummarizeMapReduce
-        from ..models.user_llm_config import UserLLMConfig
+        from ..models.llm_configs import LLMConfigs
+        from ..models.map_reduce_configs import MapReduceConfigs
+        from ..models.preprocessor_config import PreprocessorConfig
 
         d = src_dict.copy()
         file_filter = FileFilter.from_dict(d.pop("file_filter"))
 
-        preprocessor = Preprocessor.from_dict(d.pop("preprocessor"))
+        preprocessor_config = PreprocessorConfig.from_dict(d.pop("preprocessor_config"))
 
-        summarize_map_reduce = SummarizeMapReduce.from_dict(d.pop("summarize_map_reduce"))
+        summarize_map_reduce = MapReduceConfigs.from_dict(d.pop("summarize_map_reduce"))
 
-        llm_config = UserLLMConfig.from_dict(d.pop("llm_config"))
+        llm_config = LLMConfigs.from_dict(d.pop("llm_config"))
 
-        body_summarize_from_disk_summarize_from_disk_post = cls(
+        body_summarize_from_disk = cls(
             file_filter=file_filter,
-            preprocessor=preprocessor,
+            preprocessor_config=preprocessor_config,
             summarize_map_reduce=summarize_map_reduce,
             llm_config=llm_config,
         )
 
-        body_summarize_from_disk_summarize_from_disk_post.additional_properties = d
-        return body_summarize_from_disk_summarize_from_disk_post
+        body_summarize_from_disk.additional_properties = d
+        return body_summarize_from_disk
 
     @property
     def additional_keys(self) -> List[str]:
