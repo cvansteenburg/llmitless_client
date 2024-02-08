@@ -18,11 +18,14 @@ class LLMConfigs:
         model (Union[None, Unset, str]): The model to use for LLM calls. If not specified, defaults to gpt-3.5-turbo
         temperature (Union[None, Unset, float]): Controls randomness of the output. Values closer to 0 make output more
             random, values closer to 1 make output more deterministic. If not specified, default is 0.7
+        max_tokens (Union[None, Unset, int]): Maximum number of tokens the model will generate. If not specified,
+            default is 3000
     """
 
     organization: Union[None, Unset, str] = UNSET
     model: Union[None, Unset, str] = UNSET
     temperature: Union[None, Unset, float] = UNSET
+    max_tokens: Union[None, Unset, int] = UNSET
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -44,6 +47,12 @@ class LLMConfigs:
         else:
             temperature = self.temperature
 
+        max_tokens: Union[None, Unset, int]
+        if isinstance(self.max_tokens, Unset):
+            max_tokens = UNSET
+        else:
+            max_tokens = self.max_tokens
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -53,6 +62,8 @@ class LLMConfigs:
             field_dict["model"] = model
         if temperature is not UNSET:
             field_dict["temperature"] = temperature
+        if max_tokens is not UNSET:
+            field_dict["max_tokens"] = max_tokens
 
         return field_dict
 
@@ -87,10 +98,20 @@ class LLMConfigs:
 
         temperature = _parse_temperature(d.pop("temperature", UNSET))
 
+        def _parse_max_tokens(data: object) -> Union[None, Unset, int]:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(Union[None, Unset, int], data)
+
+        max_tokens = _parse_max_tokens(d.pop("max_tokens", UNSET))
+
         llm_configs = cls(
             organization=organization,
             model=model,
             temperature=temperature,
+            max_tokens=max_tokens,
         )
 
         llm_configs.additional_properties = d

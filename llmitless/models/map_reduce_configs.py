@@ -29,7 +29,7 @@ class MapReduceConfigs:
         iteration_limit (Union[Unset, int]): In a map-reduce summarization strategy, this is the maximum number of times
             the LLM will "summarize the summaries". Default: 3.
         collapse_token_max (Union[Unset, int]): In a map-reduce summarization strategy, this is the maximum number of
-            tokens to include in the combined summaries that the LLM will summarize. Default: 6000.
+            tokens to include in the combined summaries that the LLM will summarize. Default: 3200.
     """
 
     core_prompt: Union[None, Unset, str] = UNSET
@@ -37,7 +37,7 @@ class MapReduceConfigs:
     combine_prompt: Union[None, Unset, str] = UNSET
     max_concurrency: Union[Unset, int] = 3
     iteration_limit: Union[Unset, int] = 3
-    collapse_token_max: Union[Unset, int] = 6000
+    collapse_token_max: Union[Unset, int] = 3200
     additional_properties: Dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
