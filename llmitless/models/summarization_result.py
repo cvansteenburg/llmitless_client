@@ -15,12 +15,25 @@ T = TypeVar("T", bound="SummarizationResult")
 
 @_attrs_define
 class SummarizationResult:
-    """
+    r"""
+    Example:
+        {'debug': {'key': 'value'}, 'result_status': 'SUCCESS', 'summary': 'Successful summarization output',
+            'usage_report': 'Total Tokens: 3700\n\nPrompt Tokens: 3200\n\nCompletion Tokens: 500.\n\nTotal Cost (USD):
+            $0.0351'}
+
     Attributes:
         result_status (ResultStatus):
-        summary (Union[None, Unset, str]):
-        usage_report (Union[None, Unset, str]):
-        debug (Union['SummarizationResultDebugType0', None, Unset]):
+        summary (Union[None, Unset, str]): The summarized text.
+        usage_report (Union[None, Unset, str]): LLM cost and usage report, if available. This is enabled server-side,
+            and if enabled, may vary by model. Example: 'Total Tokens: 3700
+
+            Prompt Tokens: 3200
+
+            Completion Tokens: 500.
+
+            Total Cost (USD): $0.0351'
+        debug (Union['SummarizationResultDebugType0', None, Unset]): Extra debug information, if available. Used in
+            self-hosted dev environments.
     """
 
     result_status: ResultStatus

@@ -1,0 +1,14 @@
+from enum import Enum
+
+
+class SummarizeTestScenarios(str, Enum):
+    FORBIDDEN_CONTENT = "FORBIDDEN_CONTENT"
+    INAUTHENTICATED = "INAUTHENTICATED"
+    INVALID_REQUEST = "INVALID_REQUEST"
+    SERVER_ERROR = "SERVER_ERROR"
+    SUCCESS_WITH_DUMMY_DATA = "SUCCESS_WITH_DUMMY_DATA"
+    SUCCESS_WITH_NONE = "SUCCESS_WITH_NONE"
+    SUCCESS_WITH_SUMMARY_ONLY = "SUCCESS_WITH_SUMMARY_ONLY"
+
+    def __str__(self) -> str:
+        return str(self.value)
